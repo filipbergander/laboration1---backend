@@ -1,50 +1,88 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const { render } = require('ejs');
+//const { render } = require('ejs');
 const sqlite3 = require("sqlite3").verbose();
 
 const db = new sqlite3.Database("./db/cv.db");
 
 const app = express();
 const port = 3000;
-app.set("view engine", "ejs"); // views mappen
 app.use(express.static("public")); // public mappen
-
 app.use(bodyParser.urlencoded({ extended: true }));
-
-// Starta server
-app.listen(port, () => {
-    console.log("Servern kör på port: " + port);
-});
+app.set("view engine", "ejs"); // views mappen
 
 app.get("/", (req, res) => {
     db.all("SELECT * FROM course;", (err, rows) => {
         if (err) {
             console.error(err);
         }
-        res.render("index");
+        res.render("index", { courses: rows });
+        console.log(rows);
     });
 });
 
 app.get("/about", (req, res) => {
     res.render("about");
 });
+// Skickar med 
 app.get("/newcourse", (req, res) => {
-    res.render("newcourse");
+    res.render("newcourse", {
+        errMessage: [],
+        coursecode: "",
+        coursename: "",
+        progression: "",
+        syllabus: ""
+    });
 });
 
 app.post("/", (req, res) => {
+    // Läser in data från formuläret
+    let courseid = req.body.id;
     let coursecode = req.body.code;
     let coursename = req.body.name;
     let progression = req.body.progression;
     let syllabus = req.body.syllabus;
+    let posted = req.body.posted;
 
-    if (coursecode.length > 0 && coursename.length > 0 && progression.length > 0 && syllabus.length > 0) {
-        const statement = db.prepare(`INSERT INTO course (code, name, progression, syllabus) VALUES (?, ?, ?, ?);`);
-        statement.run(coursecode, coursename, progression, syllabus);
-        statement.finalize();
-    } else {
-        console.log("Alla fält måste fyllas i!");
+    // Array för felmeddelanden
+    let errMessage = [];
+    console.log(errMessage);
+
+    // Felmeddelande för respektive inputfält
+    if (coursecode === "") {
+        errMessage.push("Ange kurskod!");
     }
-    res.redirect("/newcourse");
+
+    if (coursename === "") {
+        errMessage.push("Ange kursnamn!");
+    }
+
+    if (progression === "") {
+        errMessage.push("Ange progression!");
+    }
+
+    if (syllabus === "") {
+        errMessage.push("Ange kursplan!");
+    }
+    // Om fel finns renderas denna newcourse igen med felmeddelanden
+    if (errMessage.length > 0) {
+        res.render("newcourse", {
+            errMessage,
+            coursecode,
+            coursename,
+            progression,
+            syllabus
+        });
+        // Annars om inga fel finns körs sql-frågan och kursen läggs till, index-sidan renderas då om allt går igenom.
+    } else if (errMessage.length === 0) {
+        const statement = db.prepare(`INSERT INTO course (code, name, progression, syllabus) VALUES (?, ?, ?, ?);`);
+        statement.run(coursecode, coursename, progression, syllabus); // Stoppar in värdena i frågan
+        statement.finalize();
+        res.redirect("/");
+    }
+});
+
+// Starta server
+app.listen(port, () => {
+    console.log("Servern kör på port: " + port);
 });

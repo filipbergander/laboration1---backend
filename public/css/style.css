@@ -11,4 +11,28 @@ main {
   margin-top: 0;
 }
 
+#course-form {
+  margin: 0 auto;
+}
+
+#error {
+  padding: none;
+  margin-left: none;
+  color: red;
+  text-align: center;
+  list-style-position: inside;
+  margin: none;
+  list-style: none;
+}
+#error li {
+  margin-left: none;
+  color: red;
+  font-weight: bold;
+}
+
+#error-container {
+  margin: 0 auto;
+  text-align: center;
+}
+
 /*# sourceMappingURL=style.css.map */

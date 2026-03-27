@@ -19,19 +19,29 @@
     </nav>
     <main>
         <h1>Lägg till kurs</h1>
-        <p id="err-message"></p>
+        <div id="error-container">
+            <% if(locals.errMessage.length> 0) { %>
+                <ul id="error">
+                    <% errMessage.forEach((error)=> { %>
+                        <li>
+                            <%= error %>
+                        </li>
+                        <%});%>
+                </ul>
+                <% }%>
+        </div>
         <form method="post" action="/" id="course-form">
             <label for="code">Kurskod</label>
-            <input type="text" name="code" id="code" required>
+            <input type="text" name="code" id="code" value="<%= coursecode %>">
             <br>
             <label for="name">Kursnamn</label>
-            <input type="text" name="name" id="name" required>
+            <input type="text" name="name" id="name" value="<%= coursename %>">
             <br>
             <label for="progression">Progression</label>
-            <input type="text" name="progression" id="progression" required>
+            <input type="text" name="progression" id="progression" value="<%= progression %>">
             <br>
             <label for="syllabus">Kursplan</label>
-            <input type="text" name="syllabus" id="syllabus" required>
+            <input type="text" name="syllabus" id="syllabus" value="<%= syllabus %>">
             <br>
             <input type="submit" id="newcourse-button" value="Lägg till kurs">
         </form>
