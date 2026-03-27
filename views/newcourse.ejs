@@ -9,21 +9,31 @@
 </head>
 
 <body>
+    <div id="message"></div>
+    <nav>
+        <ul>
+            <li><a href="/">Hem</a></li>
+            <li><a href="/about">Om</a></li>
+            <li><a href="/newcourse">Lägg till kurs</a></li>
+        </ul>
+    </nav>
     <main>
-        <form id="course-form">
+        <h1>Lägg till kurs</h1>
+        <p id="err-message"></p>
+        <form method="post" action="/" id="course-form">
             <label for="code">Kurskod</label>
-            <input type="text" name="code" id="code">
+            <input type="text" name="code" id="code" required>
             <br>
-            <label for="coursename">Kursnamn</label>
-            <input type="text" name="coursename" id="coursename">
+            <label for="name">Kursnamn</label>
+            <input type="text" name="name" id="name" required>
             <br>
             <label for="progression">Progression</label>
-            <input type="text" name="progression" id="progression">
+            <input type="text" name="progression" id="progression" required>
             <br>
             <label for="syllabus">Kursplan</label>
-            <input type="text" name="syllabus" id="syllabus">
+            <input type="text" name="syllabus" id="syllabus" required>
             <br>
-            <button type="submit" id="newcourse-button">Lägg till kurs</button>
+            <input type="submit" id="newcourse-button" value="Lägg till kurs">
         </form>
     </main>
 </body>

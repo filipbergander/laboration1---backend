@@ -10,6 +10,7 @@ db.serialize(() => {
     db.run(`
     CREATE TABLE course(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
+        code TEXT NOT NULL,
         name TEXT NOT NULL,
         progression TEXT NOT NULL,
         syllabus TEXT NOT NULL,
@@ -17,4 +18,5 @@ db.serialize(() => {
     );
     `);
 });
+
 db.close();
