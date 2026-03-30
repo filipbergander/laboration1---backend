@@ -26,36 +26,34 @@
                 <th>KursID</th>
                 <th>Kurskod</th>
                 <th>Kursnamn</th>
-                <th>Progression</th>
+                <th>Kursprogression</th>
                 <th>Kursplan</th>
                 <th>Skapad</th>
             </tr>
             <tbody id="table-body">
-                <% courses.forEach(course=> { %>
+                <% courses.forEach(row=> { %>
                     <tr>
                         <td>
-                            <%= course.id %>
+                            <%= row.id %>
                         </td>
                         <td>
-                            <%= course.code %>
+                            <%= row.code %>
                         </td>
                         <td>
-                            <%= course.name %>
+                            <%= row.name %>
                         </td>
                         <td>
-                            <%= course.progression %>
+                            <%= row.progression %>
                         </td>
                         <td>
-                            <%= course.syllabus %>
+                            <%= row.syllabus %>
                         </td>
                         <td>
-                            <%= course.posted%>
+                            <%= new Date(row.posted + "Z").toLocaleString("sv-SE", {dateStyle: "medium", timeStyle: "short"
+                                }) %>
                         </td>
                         <td>
-                            <form method="post" action="/delete">
-                                <label for="delete">Ta bort kurs</label>
-                                <input type="submit" id="delete" value="<%=course.id%>">
-                            </form>
+                            <a href="/delete/<%=row.id%>">Radera kurs</a>
                         </td>
                     </tr>
                     <% }); %>

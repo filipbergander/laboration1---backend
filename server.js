@@ -44,7 +44,6 @@ app.post("/", (req, res) => {
     let syllabus = req.body.syllabus;
     let posted = req.body.posted;
 
-
     // Array för felmeddelanden
     let errMessage = [];
     console.log(errMessage);
@@ -86,13 +85,15 @@ app.post("/", (req, res) => {
     }
 });
 
-app.post("/delete", (req, res) => {
-    const id = req.body.id;
-
-    const deleteStatement = db.prepare(`DELETE FROM course WHERE id = ?;`);
-    deleteStatement.run(id);
-    deleteStatement.finalize();
-    res.redirect("/");
+// För att radera en kurs
+app.get("/delete/:id", (req, res) => {
+    let id = req.params.id;
+    db.run("DELETE FROM course WHERE id=?;", id, (error) => {
+        if (error) {
+            console.log(error.message);
+        }
+        res.redirect("/");
+    });
 });
 
 

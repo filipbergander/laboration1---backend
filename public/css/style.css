@@ -6,13 +6,12 @@ body {
 main {
   background-color: rgb(255, 168, 6);
   color: black;
-  width: 960px;
+  max-width: 960px;
   text-align: center;
   margin: 0 auto;
   margin-top: 0;
   padding: 10em;
   border: 2px solid rgba(121, 114, 114, 0.468);
-  border-radius: 50%;
 }
 
 header {
@@ -115,13 +114,20 @@ table th,
 table td {
   border: 1px solid rgba(121, 114, 114, 0.468);
   padding: 1em;
-  text-align: left;
+  text-align: center;
   background-color: rgba(255, 255, 255, 0.664);
 }
 table th {
   background-color: rgb(0, 157, 255);
   color: black;
   text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+  th,
+  td {
+    text-align: left;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
