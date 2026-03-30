@@ -13,8 +13,8 @@
         <nav>
             <ul>
                 <li><a href="/">Hem</a></li>
-                <li><a href="/about">Om</a></li>
                 <li><a href="/newcourse" class="current-page">Lägg till kurs</a></li>
+                <li><a href="/about">Om</a></li>
             </ul>
         </nav>
     </header>
@@ -32,23 +32,24 @@
                 <% }%>
         </div>
         <form method="post" action="/" id="course-form">
-            <div class="form-group">
+            <div>
                 <label for="code">Kurskod</label>
-                <input type="text" name="code" id="code" placeholder="Skriv kurskod..." value="<%= coursecode %>">
+                <input type="text" name="code" id="code" placeholder="Skriv kurskod..." maxlength="8" value="<%= coursecode %>">
                 <br>
             </div>
-            <div class="form-group"> <label for="name">Kursnamn</label>
-                <input type="text" name="name" id="name" placeholder="Skriv kursnamn..." value="<%= coursename %>">
+            <div>
+                <label for="name">Kursnamn</label>
+                <input type="text" name="name" id="name" placeholder="Skriv kursnamn..." maxlength="75" value="<%= coursename %>">
                 <br>
             </div>
-            <div class="form-group">
+            <div>
                 <label for="progression">Kursprogression</label>
-                <input type="text" name="progression" id="progression" placeholder="Skriv kursprogression..." value="<%= progression %>">
+                <input type="text" name="progression" id="progression" placeholder="Skriv kursprogression..." maxlength="1" value="<%= progression %>">
                 <br>
             </div>
-            <div class="form-group">
+            <div>
                 <label for="syllabus">Kursplan</label>
-                <input type="text" name="syllabus" id="syllabus" placeholder="Skriv kursplan..." value="<%= syllabus %>">
+                <input type="text" name="syllabus" id="syllabus" placeholder="Skriv kursplan..." maxlength="75" value="<%= syllabus %>">
                 <br>
             </div>
             <input type="submit" id="newcourse-button" value="Lägg till kurs">

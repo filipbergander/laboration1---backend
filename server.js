@@ -59,12 +59,14 @@ app.post("/", (req, res) => {
 
     if (progression === "") {
         errMessage.push("Ange progression!");
-    } else if (progression !== "A" && progression !== "B" && progression !== "C") {
-        errMessage.push("Progression måste vara A, B eller C!");
+    } else if (progression !== "A" && progression !== "B") {
+        errMessage.push("Progression måste vara A eller B!");
     }
 
     if (syllabus === "") {
         errMessage.push("Ange kursplan!");
+    } else if (!syllabus.includes("http") || !syllabus.includes("https")) {
+        errMessage.push("Ange en giltig URL!")
     }
     // Om fel finns renderas denna newcourse igen med felmeddelanden
     if (errMessage.length > 0) {

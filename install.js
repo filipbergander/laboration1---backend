@@ -17,6 +17,8 @@ db.serialize(() => {
         posted TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
     );
     `);
+    db.run(`INSERT INTO course (code, name, progression, syllabus) VALUES ("DT224G", "Introduktion till webbutveckling med HTML, CSS och JavaScript", "A", "https://www.miun.se/utbildning/kursplaner-och-utbildningsplaner/DT224G/"), ("DT200G", "Grafisk teknik för webb", "A", "https://www.miun.se/utbildning/kursplaner-och-utbildningsplaner/DT200G/"), ("DT068G", "Webbanvändbarhet", "B", "https://www.miun.se/utbildning/kursplaner-och-utbildningsplaner/DT068G/"), ("DT003G", "Databaser", "A", "https://www.miun.se/utbildning/kursplaner-och-utbildningsplaner/DT003G/"), ("DT211G", "Frontend-baserad webbutveckling", "B", "https://www.miun.se/utbildning/kursplaner-och-utbildningsplaner/DT211G/");
+`);
 });
 
 db.close();
