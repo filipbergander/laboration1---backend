@@ -10,15 +10,17 @@
 
 <body>
     <div id="message"></div>
-    <nav>
-        <ul>
-            <li><a href="/">Hem</a></li>
-            <li><a href="/about">Om</a></li>
-            <li><a href="/newcourse">Lägg till kurs</a></li>
-        </ul>
-    </nav>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/" class="current-page">Hem</a></li>
+                <li><a href="/about">Om</a></li>
+                <li><a href="/newcourse">Lägg till kurs</a></li>
+            </ul>
+        </nav>
+    </header>
     <main>
-        <h1>Visa kurser</h1>
+        <h1>Kurser</h1>
         <table>
             <tr>
                 <th>KursID</th>
@@ -29,7 +31,7 @@
                 <th>Skapad</th>
             </tr>
             <tbody id="table-body">
-                <% courses.forEach(course => { %>
+                <% courses.forEach(course=> { %>
                     <tr>
                         <td>
                             <%= course.id %>
@@ -48,6 +50,12 @@
                         </td>
                         <td>
                             <%= course.posted%>
+                        </td>
+                        <td>
+                            <form method="post" action="/delete">
+                                <label for="delete">Ta bort kurs</label>
+                                <input type="submit" id="delete" value="<%=course.id%>">
+                            </form>
                         </td>
                     </tr>
                     <% }); %>

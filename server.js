@@ -40,9 +40,10 @@ app.post("/", (req, res) => {
     let courseid = req.body.id;
     let coursecode = req.body.code;
     let coursename = req.body.name;
-    let progression = req.body.progression;
+    let progression = req.body.progression.toUpperCase();
     let syllabus = req.body.syllabus;
     let posted = req.body.posted;
+
 
     // Array för felmeddelanden
     let errMessage = [];
@@ -59,6 +60,8 @@ app.post("/", (req, res) => {
 
     if (progression === "") {
         errMessage.push("Ange progression!");
+    } else if (progression !== "A" && progression !== "B" && progression !== "C") {
+        errMessage.push("Progression måste vara A, B eller C!");
     }
 
     if (syllabus === "") {
@@ -78,11 +81,23 @@ app.post("/", (req, res) => {
         const statement = db.prepare(`INSERT INTO course (code, name, progression, syllabus) VALUES (?, ?, ?, ?);`);
         statement.run(coursecode, coursename, progression, syllabus); // Stoppar in värdena i frågan
         statement.finalize();
+
         res.redirect("/");
     }
 });
 
+app.post("/delete", (req, res) => {
+    const id = req.body.id;
+
+    const deleteStatement = db.prepare(`DELETE FROM course WHERE id = ?;`);
+    deleteStatement.run(id);
+    deleteStatement.finalize();
+    res.redirect("/");
+});
+
+
 // Starta server
 app.listen(port, () => {
     console.log("Servern kör på port: " + port);
+    console.log("http://localhost:" + port);
 });
