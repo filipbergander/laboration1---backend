@@ -1,67 +1,67 @@
 <mxfile host="65bd71144e">
     <diagram id="IibJiIOi3aRul_byxlmE" name="Page-1">
-        <mxGraphModel dx="605" dy="567" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+        <mxGraphModel dx="1456" dy="567" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
                 <mxCell id="27" value="courses" style="whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
-                    <mxGeometry x="525" y="360" width="100" height="40" as="geometry"/>
+                    <mxGeometry x="525" y="370" width="100" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="28" value="&lt;h1&gt;Databas som ska finnas för att beskriva kurser som man deltagit i, likt ett cv.&lt;/h1&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="400" y="140" width="340" height="100" as="geometry"/>
                 </mxCell>
                 <mxCell id="29" value="course_id" style="ellipse;whiteSpace=wrap;html=1;align=center;fontStyle=4;" parent="1" vertex="1">
-                    <mxGeometry x="460" y="280" width="100" height="40" as="geometry"/>
+                    <mxGeometry x="440" y="300" width="100" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="30" value="progression" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
-                    <mxGeometry x="700" y="390" width="100" height="40" as="geometry"/>
+                    <mxGeometry x="700" y="400" width="100" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="31" value="syllabus" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
-                    <mxGeometry x="610" y="440" width="100" height="40" as="geometry"/>
+                    <mxGeometry x="610" y="450" width="100" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="32" value="coursename" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
-                    <mxGeometry x="475" y="440" width="100" height="40" as="geometry"/>
+                    <mxGeometry x="475" y="450" width="100" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="33" value="coursecode" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
-                    <mxGeometry x="360" y="410" width="100" height="40" as="geometry"/>
+                    <mxGeometry x="360" y="420" width="100" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="35" value="" style="endArrow=none;html=1;rounded=0;" parent="1" source="29" target="27" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="490" y="360" as="sourcePoint"/>
-                        <mxPoint x="650" y="360" as="targetPoint"/>
+                        <mxPoint x="490" y="370" as="sourcePoint"/>
+                        <mxPoint x="650" y="370" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="36" value="" style="endArrow=none;html=1;rounded=0;" parent="1" source="33" target="27" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="440" y="382" as="sourcePoint"/>
-                        <mxPoint x="535" y="387" as="targetPoint"/>
+                        <mxPoint x="440" y="392" as="sourcePoint"/>
+                        <mxPoint x="535" y="397" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="37" value="" style="endArrow=none;html=1;rounded=0;" parent="1" source="32" target="27" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="450" y="392" as="sourcePoint"/>
-                        <mxPoint x="545" y="397" as="targetPoint"/>
+                        <mxPoint x="450" y="402" as="sourcePoint"/>
+                        <mxPoint x="545" y="407" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="38" value="" style="endArrow=none;html=1;rounded=0;" parent="1" source="31" target="27" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="460" y="402" as="sourcePoint"/>
-                        <mxPoint x="555" y="407" as="targetPoint"/>
+                        <mxPoint x="460" y="412" as="sourcePoint"/>
+                        <mxPoint x="555" y="417" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="39" value="" style="endArrow=none;html=1;rounded=0;" parent="1" source="30" target="27" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="470" y="412" as="sourcePoint"/>
-                        <mxPoint x="565" y="417" as="targetPoint"/>
+                        <mxPoint x="470" y="422" as="sourcePoint"/>
+                        <mxPoint x="565" y="427" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="40" value="date_created" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
-                    <mxGeometry x="600" y="280" width="100" height="40" as="geometry"/>
+                    <mxGeometry x="625" y="300" width="100" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="41" value="" style="endArrow=none;html=1;rounded=0;" parent="1" source="40" target="27" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="714" y="412" as="sourcePoint"/>
-                        <mxPoint x="635" y="399" as="targetPoint"/>
+                        <mxPoint x="714" y="422" as="sourcePoint"/>
+                        <mxPoint x="635" y="409" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
             </root>
