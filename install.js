@@ -1,3 +1,4 @@
+// Installationsfil för sqlite3-databasen
 const sqllite3 = require("sqlite3").verbose();
 
 // Skapa databas
