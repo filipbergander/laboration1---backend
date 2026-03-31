@@ -4,7 +4,7 @@ const express = require('express'); // Express-verktyget
 const bodyParser = require('body-parser'); // För att läsa in data från forumulär 
 const sqlite3 = require("sqlite3").verbose(); // SQlite3 
 
-const db = new sqlite3.Database("process.env.DB_PATH"); // Ansluter till databasen
+const db = new sqlite3.Database(process.env.DB_PATH); // Ansluter till databasen
 
 const app = express();
 const port = process.env.PORT || 3000; // Porten som servern ska köra på, hämtas från env-filen eller port 3000.
