@@ -1,16 +1,19 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-//const { render } = require('ejs');
-const sqlite3 = require("sqlite3").verbose();
+require("dotenv").config(); // För att hämta in env-filen
 
-const db = new sqlite3.Database("./db/cv.db");
+const express = require('express'); // Express-verktyget
+const bodyParser = require('body-parser'); // För att läsa in data från forumulär 
+const sqlite3 = require("sqlite3").verbose(); // SQlite3 
+
+const db = new sqlite3.Database("process.env.DB_PATH"); // Ansluter till databasen
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000; // Porten som servern ska köra på, hämtas från env-filen eller port 3000.
+
 app.use(express.static("public")); // public mappen
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs"); // views mappen
 
+// Routes
 app.get("/", (req, res) => {
     db.all("SELECT * FROM course;", (err, rows) => {
         if (err) {
@@ -24,7 +27,7 @@ app.get("/", (req, res) => {
 app.get("/about", (req, res) => {
     res.render("about");
 });
-// Skickar med 
+// Skickar med värden som är tomma för att inte få felmeddelanden i början av programmet innan nya kurser lagts till
 app.get("/newcourse", (req, res) => {
     res.render("newcourse", {
         errMessage: [],
@@ -34,7 +37,7 @@ app.get("/newcourse", (req, res) => {
         syllabus: ""
     });
 });
-
+// För att lägga till en ny kurs
 app.post("/", (req, res) => {
     // Läser in data från formuläret
     let courseid = req.body.id;
@@ -68,7 +71,7 @@ app.post("/", (req, res) => {
     } else if (!syllabus.includes("http") || !syllabus.includes("https")) {
         errMessage.push("Ange en giltig URL!")
     }
-    // Om fel finns renderas denna newcourse igen med felmeddelanden
+    // Om det finns errors, renderas newcourse igen med felmeddelandena
     if (errMessage.length > 0) {
         res.render("newcourse", {
             errMessage,
@@ -83,7 +86,7 @@ app.post("/", (req, res) => {
         statement.run(coursecode, coursename, progression, syllabus); // Stoppar in värdena i frågan
         statement.finalize();
 
-        res.redirect("/");
+        res.redirect("/"); // Startsidan
     }
 });
 
