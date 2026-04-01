@@ -1,4 +1,4 @@
-// Installationsfil för sqlite3-databasen
+// Installationsfil för databasen PostgreSQL.
 const { Client } = require('pg');
 require('dotenv').config();
 

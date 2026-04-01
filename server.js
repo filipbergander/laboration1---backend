@@ -31,14 +31,14 @@ client.connect((error) => {
 // Routes
 app.get("/", async(req, res) => {
     try {
-        const result = await client.query("SELECT * FROM course ORDER BY id DESC;");
+        const result = await client.query('SELECT * FROM course ORDER BY id DESC;');
         res.render("index", { courses: result.rows });
     } catch (error) {
         console.error("Fel vid inhämtning av tabell course:", error);
     }
 });
 
-app.get("/about", async(req, res) => {
+app.get("/about", (req, res) => {
     res.render("about");
 });
 // Skickar med värden som är tomma för att inte få felmeddelanden i början av programmet innan nya kurser lagts till
@@ -81,7 +81,7 @@ app.post("/", async(req, res) => {
 
     if (syllabus === "") {
         errMessage.push("Ange kursplan!");
-    } else if (!syllabus.includes("http") || !syllabus.includes("https")) {
+    } else if (!syllabus.startsWith("http")) {
         errMessage.push("Ange en giltig URL!")
     }
     // Om det finns errors, renderas newcourse igen med felmeddelandena
@@ -97,7 +97,7 @@ app.post("/", async(req, res) => {
     } else if (errMessage.length === 0) {
         try { // Sätter in värdena i databasen
             const result = await client.query(
-                "INSERT INTO course (code, name, progression, syllabus) VALUES ($1, $2, $3, $4)", [coursecode, coursename, progression, syllabus]
+                'INSERT INTO course (code, name, progression, syllabus) VALUES ($1, $2, $3, $4)', [coursecode, coursename, progression, syllabus]
             );
             console.log("Kursen lades till i databasen!");
             res.redirect("/"); // Returnerar startsidan
@@ -111,29 +111,13 @@ app.post("/", async(req, res) => {
 app.get("/delete/:id", async(req, res) => {
     try {
         let id = req.params.id;
-        await client.query("DELETE FROM course WHERE id=$1", [id]);
+        await client.query('DELETE FROM course WHERE id=$1', [id]);
         res.redirect("/");
         console.log("Kursen raderades från databasen!");
     } catch (error) {
         console.error("Fel vid radering av kurs:", error);
     }
 });
-// För att uppdatera en kurs
-/*
-app.get("/update/:id", async (req, res) => {
-    let id = req.params.id;
-    let coursecode = req.body.code;
-    let coursename = req.body.name;
-    let progression = req.body.progression.toUpperCase();
-    let syllabus = req.body.syllabus;
-    db.run("UPDATE course WHERE id=?;", id, (error) => {
-        if (error) {
-            console.log(error.message);
-        }
-        res.redirect("/newcourse");
-    });
-});*/
-
 
 // Starta applikationen
 app.listen(process.env.PORT, () => {
