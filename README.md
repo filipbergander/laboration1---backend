@@ -15,6 +15,7 @@ ER-diagrammet som beskriver databasens struktur finns inom er_diagram -> db.draw
 ER-diagrammet beskriver databasen för CV:et.
 - Tabell som finns: courses
 - Primärnyckel: course_id som är satt med SERIAL (Auto_increment)
+
 Attribut:
 - Coursecode, coursename, syllabus, progression samt date_created (när posten blev gjord)
 
