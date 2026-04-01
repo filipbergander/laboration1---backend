@@ -26,7 +26,7 @@
                 <th>Kursnamn</th>
                 <th>Progression</th>
                 <th>Kursplan</th>
-                <th></th>
+                <th aria-label="Åtgärder"></th>
             </tr>
             <tbody id="table-body">
                 <% courses.forEach(row => { %>
@@ -41,7 +41,7 @@
                             <%= row.progression %>
                         </td>
                         <td class="row-syllabus">
-                            <a href="<%= row.syllabus %>" target="_blank">
+                            <a href="<%= row.syllabus %>" target="_blank" aria-label="Länk till kursplan">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f">
                                     <path
                                         d="M318-120q-82 0-140-58t-58-140q0-40 15-76t43-64l134-133 56 56-134 134q-17 17-25.5 38.5T200-318q0 49 34.5 83.5T318-200q23 0 45-8.5t39-25.5l133-134 57 57-134 133q-28 28-64 43t-76 15Zm79-220-57-57 223-223 57 57-223 223Zm251-28-56-57 134-133q17-17 25-38t8-44q0-50-34-85t-84-35q-23 0-44.5 8.5T558-726L425-592l-57-56 134-134q28-28 64-43t76-15q82 0 139.5 58T839-641q0 39-14.5 75T782-502L648-368Z" />
@@ -53,7 +53,7 @@
                                 <%= new Date(row.posted + "Z" ).toLocaleString("sv-SE", {timeStyle: "short"}) %>
                         </td>-->
                         <td class="row-delete">
-                            <a href="/delete/<%=row.id%>" class="delete-btn"><svg xmlns="http://www.w3.org/2000/svg"
+                            <a href="/delete/<%=row.id%>" class="delete-btn" aria-label="Radera kurs"><svg xmlns="http://www.w3.org/2000/svg"
                                     height="24px" viewBox="0 -960 960 960" width="24px" fill="#ff0000">
                                     <path
                                         d="M312-144q-29.7 0-50.85-21.15Q240-186.3 240-216v-480h-48v-72h192v-48h192v48h192v72h-48v479.57Q720-186 698.85-165T648-144H312Zm336-552H312v480h336v-480ZM384-288h72v-336h-72v336Zm120 0h72v-336h-72v336ZM312-696v480-480Z" />

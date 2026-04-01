@@ -134,8 +134,8 @@ footer {
 }
 
 #error {
-  padding: none;
-  margin-left: none;
+  padding: 0;
+  margin-left: 0;
   color: red;
   text-align: left;
   list-style-position: inside;
@@ -261,7 +261,7 @@ table td {
   }
   table {
     width: 95%;
-    min-width: none;
+    min-width: 0;
   }
 }
 @media screen and (max-width: 500px) {
