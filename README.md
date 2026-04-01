@@ -9,4 +9,6 @@ Sidor:
 - Lägg till kurs, för att lägga till en ny kurs till sitt "CV".
 - Om, förklaring om momentet samt reflektioner.
 
+Webbplats: https://fb-lab1-backend.onrender.com/
+
 Av Filip Bergander 2026, Mittuniversitetet
