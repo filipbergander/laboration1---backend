@@ -19,6 +19,8 @@ ER-diagrammet beskriver databasen för CV:et.
 Attribut:
 - Coursecode, coursename, syllabus, progression samt date_created (när posten blev gjord)
 
+<img width="441" height="360" alt="er-diagram" src="https://github.com/user-attachments/assets/132b31cb-8913-471c-95f1-6afdb68d4e21" />
+
 Installationsskriptet finns i rotmappen: install.js. Inom install.js skapas tabellen samt infogas data till en början genom redan befintliga kurser. 
 
 Av Filip Bergander 2026, Mittuniversitetet
