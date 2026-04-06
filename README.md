@@ -7,8 +7,8 @@ Använde i början SQLite3 som databashanterare men valde senare att gå över t
 **Webbplats:** https://fb-lab1-backend.onrender.com/
 
 ### Sidor
-- Startsida/hem där kurserna presenteras med kurskod, kursnamn, nivå(progression), kursplan med länk samt datum & tid när man skapade posten.
-- Lägg till kurs, för att lägga till en ny kurs till sitt "CV".
+- Startsida/hem där kurserna presenteras med kurskod, kursnamn, progression, kursplan med länk samt funktion för att ta bort kurs genom en papperskorg-ikon.
+- Lägg till kurs, för att lägga till en ny kurs genom textfält till sitt "CV".
 - Om, förklaring om momentet samt reflektioner.
 
 ### Detaljer
