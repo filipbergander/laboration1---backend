@@ -2,6 +2,7 @@
 const { Client } = require('pg');
 require('dotenv').config();
 
+// Miljövariabler för att ansluta till databasen
 const client = new Client({
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
@@ -13,6 +14,7 @@ const client = new Client({
     }
 });
 
+// Ansluter till databasen och visar error om det misslyckas, annars skapas tabellen och data läggs till
 client.connect((error) => {
     if (error) {
         console.log('Fel vid anslutning till databasen:', error);
@@ -23,6 +25,7 @@ client.connect((error) => {
     }
 });
 
+// Skapar tabellen course och lägger itll data
 async function createTable() {
     try {
         // Tar bort tabellen om den redan finns sedan tidigare

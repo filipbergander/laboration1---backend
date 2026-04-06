@@ -169,8 +169,9 @@ footer {
   }
   #course-form #newcourse-button {
     min-width: 100px;
+    width: 70%;
     font-size: 0.8em;
-    padding: 0.25em;
+    padding: 0.5em;
   }
   #course-form div {
     width: 100%;
@@ -284,6 +285,9 @@ table td {
     padding: 0;
     margin: 0;
   }
+  .main-course {
+    width: 98%;
+  }
 }
 @media screen and (max-width: 340px) {
   table th {
@@ -311,7 +315,7 @@ article {
 @media screen and (max-width: 500px) {
   article {
     padding: 0.2em;
-    width: 100%;
+    width: 95%;
   }
 }
 @media screen and (max-width: 380px) {
